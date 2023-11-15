@@ -1,0 +1,10 @@
+{
+    "_default": {
+        "1": {"name": "Data of users on forum", "username":"text", "phone": "phone", "email": "email"},
+        "2": {"name": "Birthdays", "birthday_hum": "text", "birthday_date": "date"},
+        "3": {"name": "Purchases", "address": "text", "delivery_date": "date"},
+        "4": {"name": "Addresses", "street": "text", "house_number": "text"},
+        "5": {"name": "Store", "store_name": "text", "address": "text", "phone_number": "phone"},
+        "6": {"name": "Website", "website_name": "text", "creation_date": "date", "url": "text"}
+    }
+}

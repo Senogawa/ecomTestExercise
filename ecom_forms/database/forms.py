@@ -1,4 +1,5 @@
 import re
+from tinydb import TinyDB, Query, where
 
 class FieldType:
     def __init__(self, field_value: str) -> None:
@@ -57,7 +58,27 @@ class ValidateForm:
         for name, value in self.fields_values.items():
             self.fields_values[name] = FieldType(value).type
 
-        print(self.fields_values)
+
+    def find_suitable_form(self):
+        tiny = TinyDB("./ecom_forms/tiny.json")
+        form = self.fields_values.items()
+        for item in tiny:
+            unsuitable = False
+
+            for unform in form:
+                if unform not in item.items():
+                    unsuitable = True
+                    break
+
+            if unsuitable:
+                continue
+
+            return item.get("name")
+        
+        return self.fields_values
+
+
+        
             
 
 
@@ -66,4 +87,9 @@ class ValidateForm:
 
 
 if __name__ == "__main__":
-    form = ValidateForm({"amobus": "graubert34@yandex.ru", "bebus": "+7 185 678 23 43", "agugus": "gdfgdfg"})
+    form = ValidateForm(
+        {
+            "birthday_hum": "Jason"
+        }
+    )
+    print(form.find_suitable_form())
