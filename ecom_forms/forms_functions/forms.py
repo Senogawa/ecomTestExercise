@@ -73,8 +73,10 @@ class ValidateForm:
             if unsuitable:
                 continue
 
+            tiny.close()
             return item.get("name")
         
+        tiny.close()
         return self.fields_values
 
 
