@@ -1,5 +1,5 @@
 import re
-from tinydb import TinyDB, Query, where
+from tinydb import TinyDB
 
 class FieldType:
     def __init__(self, field_value: str) -> None:
